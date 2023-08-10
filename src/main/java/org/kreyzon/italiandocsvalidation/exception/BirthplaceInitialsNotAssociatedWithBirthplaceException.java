@@ -1,4 +1,4 @@
-package org.kreyzon.validazione.exception;
+package org.kreyzon.italiandocsvalidation.exception;
 
 public class BirthplaceInitialsNotAssociatedWithBirthplaceException extends Exception {
 

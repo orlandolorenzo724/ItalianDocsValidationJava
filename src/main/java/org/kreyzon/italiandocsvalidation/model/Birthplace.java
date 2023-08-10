@@ -1,4 +1,4 @@
-package org.kreyzon.validazione.model;
+package org.kreyzon.italiandocsvalidation.model;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package org.kreyzon.validazione;
+package org.kreyzon.italiandocsvalidation.utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,7 @@ import java.util.Map;
 public class MonthConverter {
 
     private static final Map<String, String> monthMap = new HashMap<>();
+    private static final Map<String, String> reverseMonthMap = new HashMap<>();
 
     static {
         monthMap.put("01", "A"); // Gennaio
@@ -20,9 +21,18 @@ public class MonthConverter {
         monthMap.put("10", "R"); // Ottobre
         monthMap.put("11", "S"); // Novembre
         monthMap.put("12", "T"); // Dicembre
+
+        // Populate reverseMonthMap with reverse values
+        for (Map.Entry<String, String> entry : monthMap.entrySet()) {
+            reverseMonthMap.put(entry.getValue(), entry.getKey());
+        }
     }
 
     public static String convertMonthToLetter(String month) {
         return monthMap.get(month);
+    }
+
+    public static String convertLetterToMonth(String letter) {
+        return reverseMonthMap.get(letter);
     }
 }
