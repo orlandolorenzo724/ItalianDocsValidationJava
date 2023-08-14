@@ -1,8 +1,10 @@
 package org.kreyzon.italiandocsvalidation.datianagrafici;
 
 import org.apache.commons.lang3.StringUtils;
+import org.kreyzon.italiandocsvalidation.CommonUtils;
 import org.kreyzon.italiandocsvalidation.exception.*;
 import org.kreyzon.italiandocsvalidation.model.Birthplace;
+import org.kreyzon.italiandocsvalidation.model.Gender;
 import org.kreyzon.italiandocsvalidation.model.Person;
 import org.kreyzon.italiandocsvalidation.utils.MonthConverter;
 import org.kreyzon.italiandocsvalidation.utils.RegexUtils;
@@ -11,6 +13,7 @@ import java.text.Normalizer;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.kreyzon.italiandocsvalidation.CommonUtils.getAllBirthplaces;
@@ -39,13 +42,13 @@ public class CodiceFiscale {
         }
 
         String codiceFiscale = lastName + firstName + yearOfBirth + monthOfBirth + dayOfBirth + birthPlace;
-        codiceFiscale += GEOextractControlCode(codiceFiscale);
+        codiceFiscale += extractControlCode(codiceFiscale);
 
         return codiceFiscale.toUpperCase();
     }
 
     public static String extractFirstName(String firstName) {
-        if (!CFisFirstNameValid(firstName))
+        if (!isFirstNameValid(firstName))
             try {
                 throw new FirstNameNotValidException("First name is not valid");
             } catch (FirstNameNotValidException e) {
@@ -117,7 +120,7 @@ public class CodiceFiscale {
     }
 
     public static String extractLastName(String lastName)  {
-        if (!CFisLastNameValid(lastName))
+        if (!isLastNameValid(lastName))
             try {
                 throw new LastNameNotValidException("Last name is not valid");
             } catch (LastNameNotValidException e) {
@@ -215,12 +218,12 @@ public class CodiceFiscale {
     }
 
     public static String extractDayOfBirth(String dateOfBirth, String gender) {
-        if (gender.equalsIgnoreCase("M") || gender.equalsIgnoreCase("F")) {
+        if (gender.equalsIgnoreCase(Gender.M.name()) || gender.equalsIgnoreCase(Gender.F.name())) {
 
             String[] parts = dateOfBirth.split("/");
             Integer day = Integer.parseInt(parts[0]);
 
-            if (gender.equalsIgnoreCase("F"))
+            if (gender.equalsIgnoreCase(Gender.F.name()))
                 return String.valueOf(day += 40);
 
             if (day < 10)
@@ -261,7 +264,7 @@ public class CodiceFiscale {
 
     }
 
-    public static String GEOextractControlCode(String codiceFiscale) {
+    public static String extractControlCode(String codiceFiscale) {
         String characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         int[] even = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
                 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
@@ -280,7 +283,7 @@ public class CodiceFiscale {
         return Character.toString(characters.charAt(controlIndex));
     }
 
-    public static Boolean CFisFirstNameValid(String firstName) {
+    public static Boolean isFirstNameValid(String firstName) {
         if (firstName.matches(RegexUtils.AT_LEAST_ONE_VOCAL_REGEX))
             try {
                 throw new AtLeastOneVocalException("First name must contain at least one vocal");
@@ -305,7 +308,7 @@ public class CodiceFiscale {
         return true;
     }
 
-    public static Boolean CFisLastNameValid(String lastName) {
+    public static Boolean isLastNameValid(String lastName) {
         if (lastName.matches(RegexUtils.AT_LEAST_ONE_VOCAL_REGEX))
             try {
                 throw new AtLeastOneVocalException("Last name must contain at least one vocal");
@@ -357,35 +360,35 @@ public class CodiceFiscale {
         String codiceFiscale = generateCodiceFiscale(person);
         System.out.println("Codice fiscale: " + codiceFiscale);
 
-        String reverseCodiceFiscale = CFReverseCodiceFiscale(codiceFiscale);
+        String reverseCodiceFiscale = reverseCodiceFiscale(codiceFiscale);
         System.out.println("Reverse codice fiscale: " + reverseCodiceFiscale);
 
     }
 
-    public static String CFReverseCodiceFiscale(String codiceFiscale) {
-        String firstName = CFReverseExtractFirstName(codiceFiscale);
-        String lastName = CFReverseExtractLastName(codiceFiscale);
-        String yearOfBirth = CFReverseExtractYearOfBirth(codiceFiscale);
-        String monthOfBirth = CFReverseExtractMonthOfBirth(codiceFiscale);
-        String dayOfBirth = CFReverseExtractDayOfBirth(codiceFiscale);
-        String controlCode = CFReverseControlCode(codiceFiscale);
+    public static String reverseCodiceFiscale(String codiceFiscale) {
+        String firstName = reverseExtractFirstName(codiceFiscale);
+        String lastName = reverseExtractLastName(codiceFiscale);
+        String yearOfBirth = reverseExtractYearOfBirth(codiceFiscale);
+        String monthOfBirth = reverseExtractMonthOfBirth(codiceFiscale);
+        String dayOfBirth = reverseExtractDayOfBirth(codiceFiscale);
+        String birthplace = reverseBirthplace(codiceFiscale).get(0);
+        String birthplaceProvince = reverseBirthplace(codiceFiscale).get(1);
 
-        return lastName + firstName + yearOfBirth + monthOfBirth + dayOfBirth + controlCode;
+        String controlCode = reverseControlCode(codiceFiscale);
+
+        return lastName + " " + firstName + " " + yearOfBirth + " " + monthOfBirth + " " + dayOfBirth + " " + birthplaceProvince + " " + birthplace;
     }
 
-    private static String CFReverseExtractMonthOfBirth(String codiceFiscale) {
+    private static String reverseExtractMonthOfBirth(String codiceFiscale) {
         return MonthConverter.convertLetterToMonth(codiceFiscale.substring(8, 9));
     }
 
-    private static String CFReverseExtractDayOfBirth(String codiceFiscale) {
-        Integer dayOfBirth = Integer.parseInt(codiceFiscale.substring(9, 11));
-        if (dayOfBirth > 31)
-            return "F";
-
-        return "M";
+    private static String reverseExtractDayOfBirth(String codiceFiscale) {
+        String dayOfBirth = codiceFiscale.substring(9, 11);
+        return dayOfBirth;
     }
 
-    private static String CFReverseExtractYearOfBirth(String codiceFiscale) {
+    private static String reverseExtractYearOfBirth(String codiceFiscale) {
         Integer codiceFiscaleYear = Integer.parseInt(codiceFiscale.substring(6, 8));
 
         Integer currentYear = LocalDateTime.now().getYear();
@@ -401,16 +404,34 @@ public class CodiceFiscale {
         }
     }
 
-    private static String CFReverseExtractLastName(String codiceFiscale) {
+    private static String reverseExtractLastName(String codiceFiscale) {
         return codiceFiscale.substring(0, 3);
     }
 
-    private static String CFReverseExtractFirstName(String codiceFiscale) {
+    private static String reverseExtractFirstName(String codiceFiscale) {
         return codiceFiscale.substring(3, 6);
     }
 
-    public static String CFReverseControlCode(String codiceFiscale) {
+    public static String reverseControlCode(String codiceFiscale) {
         return codiceFiscale.substring(codiceFiscale.length() - 1);
+    }
+
+    private static List<String> reverseBirthplace(String codiceFiscale) {
+        List<String> returnList = new ArrayList<>();
+
+        String birthplaceCode = codiceFiscale.substring(11, 15);
+
+        List<Birthplace> birthplaceList = getAllBirthplaces();
+
+        for (Birthplace birthplace : birthplaceList) {
+            if (birthplace.getCod_fisco().equalsIgnoreCase(birthplaceCode)) {
+                returnList.add(birthplace.getComune());
+                returnList.add(CommonUtils.getBirthplaceCodeByBirthplaceName(birthplace.getComune()));
+                return returnList;
+            }
+        }
+
+        throw new IllegalStateException("Couldn't retriever birthplace from codice fiscale " + codiceFiscale);
     }
 
     // BNC MRA 85 P 03 F205 R

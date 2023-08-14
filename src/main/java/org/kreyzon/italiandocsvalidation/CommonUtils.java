@@ -6,6 +6,7 @@ import org.kreyzon.italiandocsvalidation.model.Birthplace;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -147,6 +148,15 @@ public class CommonUtils {
     public boolean doesBirthplaceInitialsExist(String birthplaceInitials) {
         Map<String, String> provinceMap = getProvinceMap();
         return provinceMap.containsKey(birthplaceInitials);
+    }
+
+    public static String getBirthplaceCodeByBirthplaceName(String value) {
+        for (Map.Entry<String, String> entry : provinceMap.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                return entry.getKey();
+            }
+        }
+        return null;
     }
 
     public static String getBirthplaceValue(String key) throws BirthplaceInitialsNotFoundException {
