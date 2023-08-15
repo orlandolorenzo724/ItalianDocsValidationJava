@@ -7,7 +7,7 @@ import org.kreyzon.italiandocsvalidation.model.Person;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ItalianFiscoUtilsTest {
+class CodiceFiscaleTest {
 
     @Test
     void testGenerateCodiceFiscale() throws BirthplaceInitialsNotAssociatedWithBirthplaceException, BirthplaceInitialsNotFoundException, FirstNameNotValidException, LastNameNotValidException {

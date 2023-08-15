@@ -22,7 +22,7 @@ import static org.kreyzon.italiandocsvalidation.utils.MonthConverter.convertMont
 import static org.kreyzon.italiandocsvalidation.utils.RegexUtils.isValidDateFormat;
 
 public class CodiceFiscale {
-    private static List<String> vowels = List.of("A", "E", "I", "O", "U" );
+    private static List<String> vowels = List.of( "A", "E", "I", "O", "U" );
 
     public static String generateCodiceFiscale(Person person) {
         String lastName = extractLastName(person.getLastName());
