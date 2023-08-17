@@ -60,7 +60,7 @@
                         <message>Maven artifacts for ${project.version}</message>
                         <noJekyll>true</noJekyll>
                         <outputDirectory>${project.build.directory}</outputDirectory>
-                        <branch>refs/heads/release-0.1.0</branch>
+                        <branch>refs/heads/main</branch>
                         <includes>
                             <include>**/*</include>
                         </includes>

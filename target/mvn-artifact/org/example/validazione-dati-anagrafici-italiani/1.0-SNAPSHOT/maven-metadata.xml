@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.example</groupId>
+  <artifactId>validazione-dati-anagrafici-italiani</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20230817.122659</timestamp>
+      <buildNumber>2</buildNumber>
+    </snapshot>
+    <lastUpdated>20230817122659</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-20230817.122659-2</value>
+        <updated>20230817122659</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-20230817.122659-2</value>
+        <updated>20230817122659</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
