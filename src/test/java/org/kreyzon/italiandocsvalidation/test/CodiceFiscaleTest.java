@@ -127,7 +127,7 @@ class CodiceFiscaleTest {
 
     @Test
     void testGenerateCodiceFiscaleForFrancescaLombardi() {
-        Person person = new Person("Francesca", "Lombardi", "25/06/1975", "Brescia", "BS", "F");
+        Person person = new Person("Francesca", "Lombardi", "25/06/1975", "Algeria", "F");
         String expectedCodiceFiscale = "LMBFNC75H65B157U";
         String generatedCodiceFiscale = CodiceFiscale.generateCodiceFiscale(person);
         assertEquals(expectedCodiceFiscale, generatedCodiceFiscale);

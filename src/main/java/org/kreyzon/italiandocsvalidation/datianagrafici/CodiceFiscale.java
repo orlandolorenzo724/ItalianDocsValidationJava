@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.kreyzon.italiandocsvalidation.CommonUtils;
 import org.kreyzon.italiandocsvalidation.exception.*;
 import org.kreyzon.italiandocsvalidation.model.Birthplace;
+import org.kreyzon.italiandocsvalidation.model.Country;
 import org.kreyzon.italiandocsvalidation.model.Gender;
 import org.kreyzon.italiandocsvalidation.model.Person;
 import org.kreyzon.italiandocsvalidation.utils.MonthConverter;
@@ -16,8 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.kreyzon.italiandocsvalidation.CommonUtils.getAllBirthplaces;
-import static org.kreyzon.italiandocsvalidation.CommonUtils.getBirthplaceValue;
+import static org.kreyzon.italiandocsvalidation.CommonUtils.*;
 import static org.kreyzon.italiandocsvalidation.utils.MonthConverter.convertMonthToLetter;
 import static org.kreyzon.italiandocsvalidation.utils.RegexUtils.isValidDateFormat;
 
@@ -31,7 +31,9 @@ public class CodiceFiscale {
         String monthOfBirth = extractMonthOfBirth(person.getDateOfBirth());
         String dayOfBirth = extractDayOfBirth(person.getDateOfBirth(), person.getGender());
 
-        String birthplaceInitials = person.getBirthplaceInitials();
+        String birthplaceInitials = "";
+        if (person.getBirthplaceInitials() != null)
+            birthplaceInitials = person.getBirthplaceInitials();
         String birthPlace = null;
         try {
             birthPlace = extractBirthplace(person.getBirthplace(), birthplaceInitials);
@@ -244,21 +246,34 @@ public class CodiceFiscale {
 
         Birthplace birthplaceObj = null;
 
-        // Checking if birthplaceInitials are correct
-        getBirthplaceValue(birthplaceInitials);
-
         String birthPlaceCode = "";
+        boolean isItalian = false;
 
-        for (Birthplace bp : birthplaceList) {
-            if (bp.getComune().equalsIgnoreCase(birthplace)) {
-                birthplaceObj = bp;
-                birthPlaceCode = bp.getCod_fisco();
-                break;
+        if (StringUtils.isNotBlank(birthplaceInitials)) {
+            // Checking if birthplaceInitials are correct
+            getBirthplaceValue(birthplaceInitials);
+
+            for (Birthplace bp : birthplaceList) {
+                if (bp.getComune().equalsIgnoreCase(birthplace)) {
+                    birthplaceObj = bp;
+                    birthPlaceCode = bp.getCod_fisco();
+                    isItalian = true;
+                    break;
+                }
             }
+
+            if ( birthplaceObj != null && !birthplaceObj.getProvincia().equalsIgnoreCase(birthplaceInitials))
+                throw new BirthplaceInitialsNotAssociatedWithBirthplaceException("Birth place initials " + birthplaceInitials + " is not associated with birthplace " + birthplace);
         }
 
-        if ( birthplaceObj != null && !birthplaceObj.getProvincia().equalsIgnoreCase(birthplaceInitials))
-            throw new BirthplaceInitialsNotAssociatedWithBirthplaceException("Birth place initials " + birthplaceInitials + " is not associated with birthplace " + birthplace);
+        if (!isItalian) {
+            List<Country> countryList = getAllCountries();
+            for (Country country : countryList) {
+                if (country.getName().equalsIgnoreCase(birthplace)) {
+                    birthPlaceCode = country.getCode_at();
+                }
+            }
+        }
 
         return birthPlaceCode.toString();
 

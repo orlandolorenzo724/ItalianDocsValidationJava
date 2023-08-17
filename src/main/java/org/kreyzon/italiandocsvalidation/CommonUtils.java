@@ -3,6 +3,7 @@ package org.kreyzon.italiandocsvalidation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.kreyzon.italiandocsvalidation.exception.BirthplaceInitialsNotFoundException;
 import org.kreyzon.italiandocsvalidation.model.Birthplace;
+import org.kreyzon.italiandocsvalidation.model.Country;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +25,19 @@ public class CommonUtils {
             throw new RuntimeException(e);
         }
         return birthplaceList;
+    }
+
+    public static List<Country> getAllCountries() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        List<Country> countryList = null;
+        try {
+            countryList = objectMapper.readValue(new File("src/main/resources/estero.json"),
+                    objectMapper.getTypeFactory().constructCollectionType(List.class, Country.class));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return countryList;
     }
 
     private static Map<String, String> provinceMap = new HashMap<>();
