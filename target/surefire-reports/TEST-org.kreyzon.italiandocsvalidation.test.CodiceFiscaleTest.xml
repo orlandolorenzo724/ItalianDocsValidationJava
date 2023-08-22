@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.797" tests="16" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Kreyzon\git\ItalianDocsValidationJava\target\test-classes;C:\Kreyzon\git\ItalianDocsValidationJava\target\classes;C:\Users\lorenzo\.m2\repository\org\projectlombok\lombok\1.18.28\lombok-1.18.28.jar;C:\Users\lorenzo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.2\junit-jupiter-api-5.7.2.jar;C:\Users\lorenzo\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\lorenzo\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\lorenzo\.m2\repository\org\junit\platform\junit-platform-commons\1.7.2\junit-platform-commons-1.7.2.jar;C:\Users\lorenzo\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\lorenzo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.2\jackson-databind-2.14.2.jar;C:\Users\lorenzo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.2\jackson-annotations-2.14.2.jar;C:\Users\lorenzo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.2\jackson-core-2.14.2.jar;"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="user.timezone" value="Europe/Bucharest"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="GB"/>
+    <property name="sun.boot.library.path" value="C:\Users\lorenzo\.jdks\corretto-17.0.8\bin"/>
+    <property name="sun.java.command" value="C:\Users\lorenzo\AppData\Local\Temp\surefire5823130381929630720\surefirebooter-20230822161559483_3.jar C:\Users\lorenzo\AppData\Local\Temp\surefire5823130381929630720 2023-08-22T16-15-59_178-jvmRun1 surefire-20230822161559483_1tmp surefire_0-20230822161559483_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Kreyzon\git\ItalianDocsValidationJava\target\test-classes;C:\Kreyzon\git\ItalianDocsValidationJava\target\classes;C:\Users\lorenzo\.m2\repository\org\projectlombok\lombok\1.18.28\lombok-1.18.28.jar;C:\Users\lorenzo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.2\junit-jupiter-api-5.7.2.jar;C:\Users\lorenzo\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\lorenzo\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\lorenzo\.m2\repository\org\junit\platform\junit-platform-commons\1.7.2\junit-platform-commons-1.7.2.jar;C:\Users\lorenzo\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\lorenzo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.2\jackson-databind-2.14.2.jar;C:\Users\lorenzo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.2\jackson-annotations-2.14.2.jar;C:\Users\lorenzo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.2\jackson-core-2.14.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\lorenzo"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-07-18"/>
+    <property name="java.home" value="C:\Users\lorenzo\.jdks\corretto-17.0.8"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Kreyzon\git\ItalianDocsValidationJava"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\lorenzo\AppData\Local\Temp\surefire5823130381929630720\surefirebooter-20230822161559483_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.8+7-LTS"/>
+    <property name="user.name" value="lorenzo"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Corretto-17.0.8.7.1"/>
+    <property name="localRepository" value="C:\Users\lorenzo\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
+    <property name="java.io.tmpdir" value="C:\Users\lorenzo\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2023.2"/>
+    <property name="java.version" value="17.0.8"/>
+    <property name="user.dir" value="C:\Kreyzon\git\ItalianDocsValidationJava"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\lorenzo\.jdks\corretto-17.0.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\lorenzo\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\apache-maven-3.9.4\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\lorenzo\AppData\Local\Microsoft\WindowsApps;C:\Users\lorenzo\AppData\Roaming\nvm;C:\Program Files\nodejs;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="17.0.8+7-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testGenerateCodiceFiscaleForDavideMoretti" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.439"/>
+  <testcase name="testGenerateCodiceFiscaleForLauraBianchi" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.044"/>
+  <testcase name="testGenerateCodiceFiscaleForStrangeName" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.041"/>
+  <testcase name="testGenerateCodiceFiscale2" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.032"/>
+  <testcase name="testGenerateCodiceFiscale3" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.024"/>
+  <testcase name="testGenerateCodiceFiscale4" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.024"/>
+  <testcase name="testGenerateCodiceFiscale5" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.019"/>
+  <testcase name="testGenerateCodiceFiscale6" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.017"/>
+  <testcase name="testGenerateCodiceFiscaleForLucaVerdi" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.015"/>
+  <testcase name="testGenerateCodiceFiscaleForWrongGender" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.002"/>
+  <testcase name="testGenerateCodiceFiscaleWithNonExistentBirthplaceInitials" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.013"/>
+  <testcase name="testGenerateCodiceFiscaleForMarcoRossi" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.015"/>
+  <testcase name="testGenerateCodiceFiscaleForInvalidData" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.002"/>
+  <testcase name="testGenerateCodiceFiscale" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.023"/>
+  <testcase name="testGenerateCodiceFiscaleForWrongDOB" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.002"/>
+  <testcase name="testGenerateCodiceFiscaleForFrancescaLombardi" classname="org.kreyzon.italiandocsvalidation.test.CodiceFiscaleTest" time="0.027"/>
+</testsuite>
