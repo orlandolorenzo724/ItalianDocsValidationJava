@@ -362,22 +362,21 @@ public class CodiceFiscale {
         return true;
     }
 
-    public static void main(String[] args) throws BirthplaceInitialsNotAssociatedWithBirthplaceException, BirthplaceInitialsNotFoundException, FirstNameNotValidException, LastNameNotValidException {
+    public static void main(String[] args) {
         Person person = Person
                 .builder()
-                .firstName("Lorenzo")
-                .lastName("Orlando")
-                .birthplace("Napoli")
-                .birthplaceInitials("NA")
+                .firstName("Mario")
+                .lastName("Rossi")
+                .birthplace("Milano")
+                .birthplaceInitials("MI")
                 .gender("M")
-                .dateOfBirth("28/03/2001")
+                .dateOfBirth("25/05/1984")
                 .build();
         String codiceFiscale = generateCodiceFiscale(person);
         System.out.println("Codice fiscale: " + codiceFiscale);
 
         String reverseCodiceFiscale = reverseCodiceFiscale(codiceFiscale);
         System.out.println("Reverse codice fiscale: " + reverseCodiceFiscale);
-
     }
 
     public static String reverseCodiceFiscale(String codiceFiscale) {
