@@ -8,7 +8,7 @@ The **ItalianDocsValidationJava** library is part of a twin set of libraries des
 
 The Java counterpart, known as **ItalianDocsValidationJava**, offers developers working in the Javascript environment a powerful tool to manage Italian document data, just like its JavaScript counterpart does for JavaScript-based projects. Both libraries share a common goal of simplifying the validation, generation, and extraction of Italian document information, making them valuable resources for developers dealing with Italian documents in different programming languages.
 
-For more information about the Javascript twin library, please visit the [ItalianDocsValidationJava repository](https://github.com/Underscore2/ItalianDocsValidationJs).
+For more information about the Javascript twin library, please visit the [ItalianDocsValidationJs repository](https://github.com/Underscore2/ItalianDocsValidationJs).
 
 
 ### (Alpha) Version 0.1.0
