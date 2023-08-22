@@ -2,24 +2,24 @@
 <metadata modelVersion="1.1.0">
   <groupId>org.kreyzon</groupId>
   <artifactId>italian-docs-validation-java</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
   <versioning>
+    <lastUpdated>20230822130519</lastUpdated>
     <snapshot>
-      <timestamp>20230817.123409</timestamp>
-      <buildNumber>1</buildNumber>
+      <timestamp>20230822.130519</timestamp>
+      <buildNumber>2</buildNumber>
     </snapshot>
-    <lastUpdated>20230817123409</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.1.0-20230817.123409-1</value>
-        <updated>20230817123409</updated>
+        <value>0.1.0-20230822.130519-2</value>
+        <updated>20230822130519</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.1.0-20230817.123409-1</value>
-        <updated>20230817123409</updated>
+        <value>0.1.0-20230822.130519-2</value>
+        <updated>20230822130519</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
+  <version>0.1.0-SNAPSHOT</version>
 </metadata>
