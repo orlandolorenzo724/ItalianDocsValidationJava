@@ -35,10 +35,10 @@ public static void main(String[] args) {
         .gender("M")
         .dateOfBirth("25/05/1984")
         .build();
-        String codiceFiscale = generateCodiceFiscale(person);
+        String codiceFiscale = CodiceFiscale.generateCodiceFiscale(person);
         System.out.println("Codice fiscale: " + codiceFiscale);
 
-        String reverseCodiceFiscale = reverseCodiceFiscale(codiceFiscale);
+        String reverseCodiceFiscale = CodiceFiscale.reverseCodiceFiscale(codiceFiscale);
         System.out.println("Reverse codice fiscale: " + reverseCodiceFiscale);
 }
 
