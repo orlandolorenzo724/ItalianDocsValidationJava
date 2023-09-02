@@ -3,21 +3,21 @@
   <groupId>org.kreyzon</groupId>
   <artifactId>italian-docs-validation-java</artifactId>
   <versioning>
-    <lastUpdated>20230822130519</lastUpdated>
+    <lastUpdated>20230902164721</lastUpdated>
     <snapshot>
-      <timestamp>20230822.130519</timestamp>
-      <buildNumber>2</buildNumber>
+      <timestamp>20230902.164721</timestamp>
+      <buildNumber>1</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.1.0-20230822.130519-2</value>
-        <updated>20230822130519</updated>
+        <value>0.1.0-20230902.164721-1</value>
+        <updated>20230902164721</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.1.0-20230822.130519-2</value>
-        <updated>20230822130519</updated>
+        <value>0.1.0-20230902.164721-1</value>
+        <updated>20230902164721</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
